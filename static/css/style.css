@@ -70,6 +70,7 @@
   min-width: 120px;
   margin-right: 5px;
 }
+
 .aboutdiv {
   background: url("../images/Vector2.png") no-repeat;
   width: 100%;
@@ -77,6 +78,14 @@
   background-position: bottom center;
   background-color: rgba(239, 241, 242, 0.5);
   padding-top: 20px;
+}
+
+.aboutcontents {
+  text-align: center;
+  background: url("../images/Texture1.png") no-repeat;
+  background-size: contain;
+  background-position: bottom center;
+  padding-top: 30px;
 }
 @media only screen and (max-width: 676px) {
   .buttn1 {

@@ -1,79 +1,44 @@
-{% extends 'base.html' %}
-
-{%load static%}
-
-
-
-{%block content %} 
 
 <!-- banner section -->
-
 <div id="bannerBG">
-    <h1 class="centered-text"> A Complete Solution For
-        
-    </h>
+   <h1 class="centered-text"> A Complete Solution For
+   </h1>
    <h2 class="text-bold">
-    House Owners
-
+      House Owners
    </h2>
    <h4 class="pt-2">
-    House management system
+      House management system
    </h4>
-
    <p>
-    
-       Super easy to use & Time Saving
-       <br/>
-       Proper house management system
-
+      Super easy to use & Time Saving
+      <br/>
+      Proper house management system
    </p>
    <button class="roundbtn">
-    Price Plan
+   Price Plan
    </button>
-    
-
-
-   
 </div>
-
 <!-- banner section  end -->
-
-
-
 <!-- ABout us section -->
-
 <div class="aboutdiv">
-
-
-<div class="container pt-5 ">
-    <div class="row">
-        <div class="col-md-6 col-lg-6-col-sm-12">
+   <div class="container pt-5 ">
+      <div class="row">
+         <div class="col-md-6 col-lg-6-col-sm-12">
             <h6>
-                About us
-    
+               About us
             </h6>
-    
             <h2>
-                About House Rent
+               About House Rent
             </h2>
-    
             <img class="pt-2" src="{%static 'images/Group10.png'%} " alt="Image "/>
-    
             <p class="pt-2"> 
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
-            <button class="aboutbtn">More About Us</button>
-    
-            
-        </div>
-    
-        <div class="col-md-6 col-lg-6-col-sm-12 pt-sm-4 text-end mb-5">
-            
-            <img src="{% static 'images/im1.png' %}"  alt="about image"/>
-        </div>
-    </div>
-</div>
 
+            <img src="{% static 'images/im1.png' %}"  alt="about image"/>
+         </div>
+      </div>
+   </div>
 </div>
 <!-- ABout us section end -->
 
@@ -86,7 +51,6 @@
 
 {% comment %} {% include "Components/footer.html" %} {% endcomment %}
 {% endblock %}
-
 
 
 

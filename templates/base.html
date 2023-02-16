@@ -17,12 +17,13 @@
   </head>
   <body>
     {% include 'Components/navbar.html'%}
-    <div>{% block content %} 
     
-      {% endblock %}</div>
-    {% include 'Components/footer.html'  %}
-
-    
+      {% block content %} 
+      
+      {% endblock %}
+  
+      {% include "Components/footer.html"%}
+     
     <!-- bootstrap cdn -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

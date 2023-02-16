@@ -1,12 +1,10 @@
-{% extends 'base.html'%}
-
-
+{% extends 'base.html' %}
 
 {%load static%}
 
 
 
-{%block content%} 
+{%block content %} 
 
 <!-- banner section -->
 
@@ -69,7 +67,7 @@
             
         </div>
     
-        <div class="col-md-6 col-lg-6-col-sm-12 pt-sm-4 text-end"">
+        <div class="col-md-6 col-lg-6-col-sm-12 pt-sm-4 text-end mb-5">
             
             <img src="{% static 'images/im1.png' %}"  alt="about image"/>
         </div>
@@ -77,6 +75,19 @@
 </div>
 
 </div>
-<!-- ABout us section end-->
+<!-- ABout us section end -->
 
-{%endblock%}
+
+
+
+<!-- Footer Area End -->
+
+{% comment %} footer Part {% endcomment %}
+
+{% comment %} {% include "Components/footer.html" %} {% endcomment %}
+{% endblock %}
+
+
+
+
+

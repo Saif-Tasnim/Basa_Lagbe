@@ -76,7 +76,6 @@
   background-size: contain;
   background-position: bottom center;
   background-color: rgba(239, 241, 242, 0.5);
-  position: absolute;
   padding-top: 20px;
 }
 @media only screen and (max-width: 676px) {

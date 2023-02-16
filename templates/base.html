@@ -13,11 +13,20 @@
     />
     <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css" />
 
+    <link rel="stylesheet" href="{% static 'css/login_page.css'%}" type="text/css" />
+    
+
 
     <title>Basha Lagbe</title>
   </head>
   <body>
-    {% include 'Components/navbar.html'%}
+    
+    {% include 'Components/navbar.html' %}
+
+    {% block content %}
+   
+    {% endblock %}
+
 
     <!-- bootstrap cdn -->
     <script

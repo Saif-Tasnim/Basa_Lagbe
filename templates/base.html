@@ -12,6 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/card.css'%}" type="text/css" />
 
     <title>Basha Lagbe</title>
   </head>
@@ -19,6 +20,7 @@
     {% include 'Components/navbar.html'%}
 
     <div>{% block content %} {% endblock %}</div>
+
     <!-- bootstrap cdn -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

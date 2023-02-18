@@ -132,7 +132,7 @@ a {
   padding-bottom: 30px;
 }
 .contactoday {
-  background: #27556f;
+  background: #1708c2;
   border-radius: 27px;
   padding-top: 30px;
   padding-left: 50px;
@@ -153,23 +153,44 @@ a {
   color: #fff;
 }
 .footer {
-  background-color: rgba(34, 69, 96, 1);
+  background-color: #000929;
   color: #fff;
   padding-top: 50px;
   padding-bottom: 30px;
 }
 .privacypolicy {
-  background-color: #27556f;
+  background-color: #031a6c;
   color: #fff;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
+.cardimg {
+  width: 77px;
+  height: 77px;
+  padding-top: 20px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 12px 19px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
 @media only screen and (max-width: 676px) {
   .buttn1 {
     margin-top: 1rem;
   }
+}
+
+.landloard {
+  background-color: #000929;
+  color: #fff;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+  float: none;
 }
 
 /*

@@ -1,0 +1,55 @@
+{% load static %}
+
+<div class = "container">
+  <div class = "row">
+    <div class="col-3 border-end border-primary ">
+      <img src = "{%static 'images/hacker.png'%}" class = "w-25 mt-4 m-img d-block">
+      <button class="btn mt-3 bg-color text-white px-3 w-75"> 
+        update picture
+      </button>
+      <input class="form-control mt-4 me-3" type="search" placeholder="Search" aria-label="Search">
+      <p class="mt-5 w-100 bg-color text-white rounded p-2"> Menu </p>
+    
+    <div class= "d-flex flex-column justify-content-between">
+      
+      <div>
+
+        <button class="btn py-2 object-btn text-color fs-5 w-50 mb-3"> 
+          <i class="fa-solid fa-sack-dollar">  </i>       
+          <a href="#" class="text-color"> Buy </a></button>
+
+        <button class="btn py-2 object-btn text-color fs-5 w-50 mb-3"> 
+          <i class="fa-brands fa-sellcast"></i>       
+          <a href="#" class="text-color"> Sell </a></button>
+
+        <button class="btn py-2 object-btn text-color fs-5 w-50 mb-3"> 
+          <i class="fa-solid fa-house"></i>  
+          <a href="#" class="text-color"> Rent </a></button>
+
+        <button class="btn py-2 object-btn text-color fs-5 w-75 mb-3 xtra-margin"> 
+          <i class="fa-solid fa-code-compare"></i>      
+          <a href="#" class="text-color">Compare </a></button>
+
+        <button class="btn py-2 object-btn text-color fs-5 w-75 mb-3 xtra-margin-act"> 
+          <i class="fa-solid fa-gear"></i>     
+          <a href="#" class="text-color"> Account </a></button>
+
+      </div>
+    
+      <div>
+        <button class="btn py-2 mt-5 bg-color fs-5 w-75"> 
+          <i class="fa-solid fa-right-from-bracket"></i>      
+          <a href="{%url 'index'%}" class="text-white"> Log Out </a></button>
+      </div>
+      
+
+    </div>
+  
+  
+  </div>
+  
+  </div>
+
+</div>
+
+

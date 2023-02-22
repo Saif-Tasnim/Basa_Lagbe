@@ -25,13 +25,20 @@
    
   </head>
   <body>
-    
+     
+    <div class = "container">
+      <div class = "row">
+
+        <div class="col-3 border-end border-primary">    
     {% include 'OwnerDashboard/navbar.html' %}
+        </div>
+    
+    <div class ="col-9">
+     {% include 'OwnerDashboard/dash_item.html' %}
+    </div>
 
-    {% block content %}
-   
-    {% endblock %}
-
+     </div>
+    </div>
 
     <!-- bootstrap cdn -->
     <script

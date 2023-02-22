@@ -19,24 +19,23 @@
         <div
           class="login_form_wrapper h-custom-2 mt-md-5 mt-xl-n5 px-5 px-lg-4 px-xl-5 pt-5 pt-lg-4 pt-xl-5 pb-4 pb-lg-2 pb-xl-4"
         >
-          <form class="login_form">
+          <form class="login_form" method="POST">
             <h2
               class="mb-3 pb-3"
               style="letter-spacing: 1px; color: #2c74b3; font-weight: bold"
             >
               Welcome
             </h2>
-
+            {% csrf_token %}
             <div class="form-outline mb-3">
               <input
-                type="email"
-                name="email"
+                type="text"
+                name="username"
                 id="form2Example18"
                 class="form-control form-control-lg"
+                required
               />
-              <label class="form-label" for="form2Example18"
-                >Email address</label
-              >
+              <label class="form-label" for="form2Example18">User name</label>
             </div>
 
             <div class="form-outline mb-3">
@@ -45,6 +44,7 @@
                 id="form2Example28"
                 name="password"
                 class="form-control form-control-lg"
+                required
               />
               <label class="form-label" for="form2Example28">Password</label>
             </div>
@@ -59,6 +59,9 @@
               >
             </p>
           </form>
+          {% if error %}
+          <p class="text-danger">{{error}}</p>
+          {% endif %}
         </div>
       </div>
     </div>

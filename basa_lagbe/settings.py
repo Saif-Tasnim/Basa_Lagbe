@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fontawesomefree',
     'home_app',
     'login_app',
     'user_app',
-    'register_app'
+    'register_app',
+    'logout_app',
+    'accounts'
 ]
 
 MIDDLEWARE = [

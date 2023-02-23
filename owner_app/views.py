@@ -4,3 +4,9 @@ from django.shortcuts import render
 
 def ownerDash(request):
     return render (request, "OwnerDashboard/owner_base.html")
+
+def ownerBuy(request):
+    return render (request,"OwnerDashboard/owner_buy.html")
+
+def ownerSell(request):
+    return render(request,"OwnerDashboard/owner_sell.html")

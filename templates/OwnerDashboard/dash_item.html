@@ -3,39 +3,13 @@
 
 {% load static %}
 
-<div class="d-flex justify-content-between">
-    <div>
-        <p class="mt-3"><b> Welcome &nbsp; <span class="fs-4 text-color"> Saif Tasnim ,</span> </b> </p>
-        <p><i> We are here to find your suitable livings ... </i></p>
-
-    
-    </div>
-
-    <div class="mt-4">
-        <button type="button" class="btn bg-color position-relative ms-3 me-5">
-            <i class="fa-solid fa-plus"></i>
-            Add New Rent/Sell
-           </button>
-        <button type="button" class="btn bg-color position-relative ms-4 me-2">
-            <i class="fa-regular fa-bell"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              10+
-              <span class="visually-hidden">unread messages</span>
-            </span>
-          </button>
-
-          <button type="button" class="btn bg-color position-relative ms-3">
-           <i class="fa-regular fa-user"></i>
-
-          </button>
-    </div>
-</div>
+{% include "OwnerDashboard/upper_nav.html"%}
 
 <div class="contaier">
   
     {% comment %} Section - 1  Hot Collections Of Flat{% endcomment %}
 
-  <div class="heading bg-color mt-4 rounded">
+  <div class="heading bg-color mt-5 rounded">
    <h2 class="p-3"> Our Hot Collections On Flat </h2>
   </div>
 
@@ -129,8 +103,8 @@
  {% comment %} Section -2   Hot Collections Of Land {% endcomment %}
 
  <div class="heading bg-color mt-5 rounded">
-    <h2 class="p-3"> Our Hot Collections On Land Property </h2>
-   </div>
+  <h2 class="p-3"> Our Hot Collections On Land </h2>
+ </div>
  
    {% comment %} Pictures of Land Property {% endcomment %}
  
@@ -218,4 +192,14 @@
    </div>
   </div>
 
+
+
+  {% comment %} section-3 hot collections outside of Dhaka {% endcomment %}
+
+
+
+
+
 </div>
+
+

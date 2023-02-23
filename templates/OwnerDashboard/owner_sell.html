@@ -34,8 +34,23 @@
         </div>
     
     <div class ="col-9">
-     {% include 'OwnerDashboard/buy_sell.html' %}
-    </div>
+      <h4 class="text-center mt-5"> Sell Your Property From Here </h4>
+
+
+ 
+      <div class="bg-color p-1 rounded mt-5 w-25 mb-3">
+              <input type="radio" id="radio-button_flat" name="radio-button"> Sell Flat
+          </div>
+        
+      {%include "OwnerDashboard/sell_flat.html"%}
+      
+      
+      <div class="bg-color p-1 rounded w-25 mb-3 mt-5">
+          <input type="radio" id="radio-button_land" name="radio-button"> Sell Land 
+        </div>
+      
+        {%include "OwnerDashboard/sell_land.html"%}
+      
 
      </div>
     </div>

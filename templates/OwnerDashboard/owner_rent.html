@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basha Lagbe</title>
+
+    {% comment %} fontawesome link {% endcomment %}
+    <script src="https://kit.fontawesome.com/d543e0cd2f.js" crossorigin="anonymous"></script>
+
+    {% comment %} bootstrap {% endcomment %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    {% comment %} custom css {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/owner_navbar.css'%}" type="text/css" />
+     
+
+   
+  </head>
+  <body>
+     
+    <div class = "container">
+      <div class = "row">
+
+    <div class="col-3 border-end border-primary">    
+    {% include 'OwnerDashboard/navbar.html' %}
+        </div>
+    
+<div class ="col-9">
+      <h4 class="text-center mt-5 text-decoration-underline"> Give Rent Your Property From Here </h4>
+     
+      <!-- Default checkbox -->
+    
+ <div class="form-check mt-5">
+    <label class="me-4"> Your Property Types :   </label>
+    <label>
+        <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">Appartment </span></label>
+        <label>
+            <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">House </span></label>
+            <label>
+                <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">Land </span></label>
+                <label>
+  </div>
+  <div class="form-check mt-4">
+    <label class="me-4"> Your Rent Finder :   </label>
+    <label>
+        <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">For Family Living </span></label>
+        <label>
+            <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-4">For Bussines </span></label>
+            <label>
+                <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">Others </span></label>
+                <label>
+  </div>
+
+ 
+  <div class="col-9 mt-5">
+    <form class="form">
+        <div class="input-group mb-3 mt-4" required>
+            <select class="form-select mb-3" id="inputGroupSelect02">
+              <option selected>Choose Divission</option>
+              <option value="1">Dhaka</option>
+              <option value="2">Chattogram</option>
+              <option value="3">Rajshahi</option>
+              <option value="4">Khulna</option>
+              <option value="5">Barishal</option>
+              <option value="6">Sylhet</option>
+              <option value="7">Rangpur</option>
+              <option value="8">Mymenshingh</option>
+            </select>
+        </div>  
+        <div class="input-group mb-3" required>
+            <select class="form-select mb-3" id="inputGroupSelect02" >
+              <option selected>Choose District</option>
+              <option value="1">Dhaka</option>
+              <option value="2">Gazipur</option>
+              <option value="3">Chattogram</option>
+              <option value="3">Savar</option>
+              <option value="3">Rajshahi</option>
+              <option value="3">Sylhet</option>
+              <option value="3">Barishal</option>
+            </select> 
+        </div>
+
+        <div class="input-group mb-4">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Your Property Located Area" required>
+          </div>
+
+          <div class="input-group mb-3 mt-4">
+                <span class="input-group-text">
+                    <i class="fa-solid fa-bangladeshi-taka-sign text-center pt-2"></i>
+                </span>
+                <input type="text" class="form-control w-25 me-2" aria-label="Amount (to the nearest dollar)" placeholder="Ammount You Require For" required>
+        
+            <select class="form-select mb-3 ms-3" id="inputGroupSelect02">
+                <option selected>Thousands</option>
+                <option value="2">Lakhs</option>
+
+              </select> 
+          </div>
+        
+        <div class="d-flex gap-5">
+        <div class="input-group mb-3 mt-4 w-50" required>
+            <select class="form-select mb-3" id="inputGroupSelect02">
+              <option selected>Floor No. (If Any)</option>
+              <option value="1">1st</option>
+              <option value="2">2nd</option>
+              <option value="3">3rd</option>
+              <option value="4">4th</option>
+              <option value="5">5th</option>
+              <option value="6">6th</option>
+              <option value="7">7th</option>
+              <option value="8">8th</option>
+            </select>
+        </div>  
+
+        <div class="input-group mb-3 mt-4 w-25" required>
+            <select class="form-select mb-3" id="inputGroupSelect02">
+              <option selected>Floor Face </option>
+              <option value="1">North</option>
+              <option value="2">South</option>
+              <option value="3">East</option>
+              <option value="4">West</option>
+
+            </select>
+        </div>  
+    
+       </div>
+
+       <div class="d-flex gap-5">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control w-25 me-2" aria-label="Amount (to the nearest dollar)" placeholder="Numerical Value Of Your Plot (If Any)" required>
+    
+        <select class="form-select mb-3 ms-3" id="inputGroupSelect02">
+            <option selected>Bigha</option>
+            <option value="2">Acre</option>
+            <option value="2">Dcm</option>
+            <option value="2">Percantage</option>
+
+          </select> 
+      </div>
+    </div>
+
+       <textarea name="details" id="" cols="80" rows="8" class="form-control mt-4 mb-4" style="resize:none;" placeholder="Write Details About Your Property Ellaborately"></textarea>
+       
+     
+       <div class="d-flex gap-3">
+        <label class="form-label text-color fw-bold" for="customFile">Upload Photo Of Your Property</label>
+        <input type="file" class="form-control mb-5 w-50" id="customFile" />
+         
+       </div>
+
+          <input class="btn bg-color ms-2 me-3 mb-5" type="submit" value="Submit">
+          
+          <input class="btn bg-color ms-3 mb-5" type="reset" value="Reset">
+
+      
+          
+
+    </form>
+</div>
+
+     </div>
+    </div>
+
+    <!-- bootstrap cdn -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -10,3 +10,7 @@ def ownerBuy(request):
 
 def ownerSell(request):
     return render(request,"OwnerDashboard/owner_sell.html")
+
+
+def ownerRent(request):
+    return render(request, "OwnerDashboard/owner_rent.html")

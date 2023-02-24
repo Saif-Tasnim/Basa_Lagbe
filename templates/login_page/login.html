@@ -29,13 +29,15 @@
             {% csrf_token %}
             <div class="form-outline mb-3">
               <input
-                type="text"
-                name="username"
+                type="email"
+                name="email"
                 id="form2Example18"
                 class="form-control form-control-lg"
                 required
               />
-              <label class="form-label" for="form2Example18">User name</label>
+              <label class="form-label" for="form2Example18"
+                >Email Address</label
+              >
             </div>
 
             <div class="form-outline mb-3">
@@ -54,7 +56,7 @@
             </div>
             <p class="">
               Don't have an account?
-              <a href="/register/" class="" style="color: #2c74b3"
+              <a href="/account/register/" class="" style="color: #2c74b3"
                 >Register here</a
               >
             </p>

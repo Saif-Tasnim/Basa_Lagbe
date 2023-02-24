@@ -38,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fontawesomefree',
     'home_app',
-    'login_app',
     'user_app',
-    'register_app',
     'corsheaders',
+    'account'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +142,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:8080"
 ]
+
+AUTH_USER_MODEL = 'account.NewUser'
+#Authentication backends
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)

@@ -3,5 +3,15 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def userdashboard(request):
-  return  render(request,'UserDashboard/userdashboard.html')
+def userDash(request):
+    return render (request, "TenantDashboard/user_base.html")
+
+def userBuy(request):
+    return render (request,"TenantDashboard/user_buy.html")
+
+def userShow(request):
+    return render(request,"TenantDashboard/user_sell.html")
+
+
+def userRent(request):
+    return render(request, "TenantDashboard/user_rent.html")

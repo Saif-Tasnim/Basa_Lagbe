@@ -2,8 +2,10 @@ from django.urls import path
 
 
 
-from .views import userdashboard
-
+from .views import userDash,userBuy,userShow,userRent
 urlpatterns =[
-    path('dashboard',userdashboard,name='userdashboard')
+    path("", userDash, name="dash"),
+    path("user-Buy",userBuy,name="buy"),
+    path("user-Sell",userShow, name="sell"),
+    path("user-Rent",userRent, name="rent")
 ]

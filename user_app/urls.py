@@ -4,8 +4,8 @@ from django.urls import path
 
 from .views import userDash,userBuy,userShow,userRent
 urlpatterns =[
-    path("", userDash, name="dash"),
-    path("user-Buy",userBuy,name="buy"),
-    path("user-Sell",userShow, name="sell"),
-    path("user-Rent",userRent, name="rent")
+    path("", userDash, name="user-dash"),
+    path("user-Buy",userBuy,name="user-buy"),
+    path("user-show",userShow, name="user-show"),
+    path("user-Rent",userRent, name="user-rent")
 ]

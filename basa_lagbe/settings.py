@@ -38,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fontawesomefree',
     'home_app',
-    'login_app',
     'user_app',
-    'register_app',
     'corsheaders',
+    'account'
 ]
 
 MIDDLEWARE = [
@@ -81,10 +81,22 @@ WSGI_APPLICATION = 'basa_lagbe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'basa_lagbe',
+        'USER': 'team_binary',
+        'PASSWORD': 'binary-1234',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 
@@ -142,3 +154,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:8080"
 ]
+
+AUTH_USER_MODEL = 'account.NewUser'
+#Authentication backends
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)

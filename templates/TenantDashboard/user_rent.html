@@ -107,7 +107,7 @@
         </div>  
        </div>
        <div class="form-check mt-4">
-        <label class="me-4"> which type of rent you find:   </label>
+        <label class="me-4">Which type of rent you find:   </label>
         <label>
             <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">For Family Living </span></label>
             <label>
@@ -117,19 +117,17 @@
                     <label>
       </div>
       <br>
-       <div class="d-flex gap-5">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control w-25 me-2" aria-label="Amount (to the nearest dollar)" placeholder="Numerical Value Of Your Plot (If Any)" required>
-    
+       {% comment %} <div class="d-flex gap-5">
+        
         <select class="form-select mb-3 ms-3" id="inputGroupSelect02">
             <option selected>Bigha</option>
             <option value="2">Acre</option>
             <option value="2">Dcm</option>
             <option value="2">Percantage</option>
 
-          </select> 
-      </div>
-    </div>
+          </select>  {% endcomment %}
+      {% comment %} </div>
+    </div> {% endcomment %}
 
        <textarea name="details" id="" cols="80" rows="8" class="form-control mt-4 mb-4" style="resize:none;" placeholder="Write Details About Your Property Ellaborately"></textarea>
        

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import (identifyUser, ownerBuy, ownerDashboard, ownerRent,
-                    ownerSell, userBuy, userDashboard, userRent, userShow)
+                    ownerSell, userBuy, userDashboard, userRent, userShow,owner_post)
 
 urlpatterns =[
     path("", identifyUser, name="identify-user"),
@@ -12,5 +12,6 @@ urlpatterns =[
     path("owner-home", ownerDashboard, name="owner-home"),
     path("owner-buy",ownerBuy,name="buy"),
     path("owner-sell",ownerSell, name="sell"),
-    path("owner-rent",ownerRent, name="rent")
+    path("owner-rent",ownerRent, name="rent"),
+    path("owner-post",owner_post, name="posts")
 ]

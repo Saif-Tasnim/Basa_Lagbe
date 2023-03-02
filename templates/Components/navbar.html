@@ -41,12 +41,33 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+       
+        
+        {% if user.is_authenticated %}
+         <div class="dropdown show">
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-user"></i>
+          </a>
+        
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+           <div class="d-flex">
+             <a href="" class="nav-link"> <i class="fa-solid fa-user"></i> {{user.first_name}}</a>
+           </div>
+
+        <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i>
+          Logout</a></li>
+          </div>
+        </div>
+       
+        {% else %}
+
         <button type="button" class="loginbtn">
           <a href="{%url 'login'%}" class="text-style-none"> Log in</a>
         </button>
         <button type="button" class="buttn1">
           <a href="{%url 'register'%}" class="reg_a">Sign Up </a>
         </button>
+        {%endif %}
       </ul>
     </div>
   </div>

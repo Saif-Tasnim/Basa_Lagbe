@@ -1,11 +1,16 @@
 from django.urls import path
 
+from .views import (identifyUser, ownerBuy, ownerDashboard, ownerRent,
+                    ownerSell, userBuy, userDashboard, userRent, userShow)
 
-
-from .views import userDash,userBuy,userShow,userRent
 urlpatterns =[
-    path("", userDash, name="user-dash"),
-    path("user-Buy",userBuy,name="user-buy"),
+    path("", identifyUser, name="identify-user"),
+    path("user-home", userDashboard, name="user-home"),
+    path("user-buy",userBuy,name="user-buy"),
     path("user-show",userShow, name="user-show"),
-    path("user-Rent",userRent, name="user-rent")
+    path("user-rent",userRent, name="user-rent"),
+    path("owner-home", ownerDashboard, name="owner-home"),
+    path("owner-buy",ownerBuy,name="buy"),
+    path("owner-sell",ownerSell, name="sell"),
+    path("owner-rent",ownerRent, name="rent")
 ]

@@ -26,27 +26,30 @@
          </div>
          <div class ="col-9">
             <h4 class="text-center mt-5 text-decoration-underline"> Give Rent Your Property From Here </h4>
+            {%for msg in messages%}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+               <strong>Hey!</strong> {{msg}}
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                 <!-- <span aria-hidden="true">&times;</span> -->
+               </button>
+             </div>
+            {%endfor%}
             <!-- Default checkbox -->
-            <form class="form" id="rentform">
+            <form class="form" id="rentform" method="POST"  enctype='multipart/form-data'
+            >
+               {% csrf_token %}
+
                <div class="form-check mt-5">
-                  <label class="me-4"> Your Property Types :   </label>
-                  <label>
-                  <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">Appartment </span></label>
-                  <label>
-                  <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">House </span></label>
-                  <label>
-                  <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">Land </span></label>
-                  <label>
+                  <div class="form-check mt-2 me-5 ">
+                     <label>Property Type</label>
+                     <input type="text" name="property_type" placeholder=" Appartment/Rent/Land" class="form-control mt-2" /> 
                </div>
-               <div class="form-check mt-4">
-               <label class="me-4"> Your Rent Finder :   </label>
-               <label>
-               <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">For Family Living </span></label>
-               <label>
-               <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-4">For Bussines </span></label>
-               <label>
-               <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">Others </span></label>
-               <label>
+               <div class=" mt-4">
+                  <div class="form-check mt-2 me-4 ">
+                     <label>Rent Type</label>
+                     <input type="text" name="rent_type" placeholder=" Family/Business/Other" class="form-control mt-2" /> 
+                     
+                  </div>
                </div>
                <div class="col-9 mt-5">
                <div class="input-group mb-3 mt-4" required>
@@ -65,31 +68,33 @@
                <div class="input-group mb-3" required>
                <select class="form-select mb-3" name="district" id="district" >
                <option selected="selected">Choose District</option>
-               <option value="1">Dhaka</option>
-               <option value="2">Gazipur</option>
-               <option value="3">Chattogram</option>
-               <option value="3">Savar</option>
-               <option value="3">Rajshahi</option>
-               <option value="3">Sylhet</option>
-               <option value="3">Barishal</option>
+               <option value="Dhaka">Dhaka</option>
+               <option value="Chattogram">Chattogram</option>
+               <option value="Rajshahi">Rajshahi</option>
+               <option value="Khulna">Khulna</option>
+               <option value="Barishal">Barishal</option>
+               <option value="Sylhet">Sylhet</option>
+               <option value="Rangpur">Rangpur</option>
+               <option value="Mymenshingh">Mymenshingh</option>
                </select> 
                </div>
                <div class="input-group mb-4">
-               <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Your Property Located Area" required>
+               <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Your Property Located Area"
+               name="location" required>
                </div>
                <div class="input-group mb-3 mt-4">
                <span class="input-group-text">
                <i class="fa-solid fa-bangladeshi-taka-sign text-center pt-2"></i>
                </span>
                <input type="text" class="form-control w-25 me-2" aria-label="Amount (to the nearest dollar)" placeholder="Ammount You Require For" name="money" required>
-               <select class="form-select mb-3 ms-3" id="inputGroupSelect02">
+               <select class="form-select mb-3 ms-3" id="inputGroupSelect02" name="money_type">
                <option selected>Thousands</option>
                <option value="2">Lakhs</option>
                </select> 
                </div>
                <div class="d-flex gap-5">
                <div class="input-group mb-3 mt-4 w-50" required>
-               <select class="form-select mb-3" id="inputGroupSelect02">
+               <select class="form-select mb-3" id="inputGroupSelect02" name="floor_no">
                <option selected>Floor No. (If Any)</option>
                <option value="1">1st</option>
                <option value="2">2nd</option>
@@ -102,7 +107,7 @@
                </select>
                </div>  
                <div class="input-group mb-3 mt-4 w-25" required>
-               <select class="form-select mb-3" id="inputGroupSelect02">
+               <select class="form-select mb-3" id="inputGroupSelect02" name="floor_face">
                <option selected>Floor Face </option>
                <option value="1">North</option>
                <option value="2">South</option>
@@ -113,8 +118,11 @@
                </div>
                <div class="d-flex gap-5">
                <div class="input-group mb-3">
-               <input type="text" class="form-control w-25 me-2" aria-label="Amount (to the nearest dollar)" placeholder="Numerical Value Of Your Plot (If Any)" required>
-               <select class="form-select mb-3 ms-3" id="inputGroupSelect02">
+               <input type="text" class="form-control w-25 me-2" aria-label="Amount (to the nearest dollar)" placeholder="Numerical Value Of Your Plot (If Any)" 
+               
+               name="numerical_value_plot"
+               required>
+               <select class="form-select mb-3 ms-3" id="inputGroupSelect02" name="numerical_value_type">
                <option selected>Bigha</option>
                <option value="2">Acre</option>
                <option value="2">Dcm</option>
@@ -122,10 +130,10 @@
                </select> 
                </div>
                </div>
-               <textarea name="details" id="" cols="80" rows="8" class="form-control mt-4 mb-4" style="resize:none;" placeholder="Write Details About Your Property Ellaborately"></textarea>
+               <textarea name="details" id="" cols="80" rows="8" class="form-control mt-4 mb-4" style="resize:none;" placeholder="Write Details About Your Property Ellaborately" name="details"></textarea>
                <div class="d-flex gap-3">
                <label class="form-label text-color fw-bold" for="customFile">Upload Photo Of Your Property</label>
-               <input type="file" class="form-control mb-5 w-50" id="customFile" />
+               <input type="file" name="rentimage" class="form-control mb-5 w-50" id="customFile" required />
                </div>
                <input class="btn bg-color ms-2 me-3 mb-5" type="submit" value="Submit">
                <input class="btn bg-color ms-3 mb-5" type="reset" value="Reset">

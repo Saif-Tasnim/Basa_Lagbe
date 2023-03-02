@@ -43,7 +43,7 @@ a {
 .loginbtn:hover,
 .roundbtn:hover {
   background-color: #3078b8;
-  color: #fff;
+  color: #fff !important;
   transition: 0.7s;
 }
 

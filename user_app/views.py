@@ -77,6 +77,10 @@ def ownerSell(request):
 
 
 def ownerRent(request):
+
+    user_email = None
+    if request.user.is_authenticated:
+        user_email = request.user.email
     if request.method == "POST" and request.FILES['rentimage']:
         get_method = request.POST.copy()
         property_type = request.POST.get("property_type")
@@ -92,16 +96,32 @@ def ownerRent(request):
         plot_size = get_method.get("numerical_value_plot")
         numerical_value_type = get_method.get("numerical_value_type")
         area_description = get_method.get("details")
+        phone_no=get_method.get("phoneNumber")
         rent_photo = request.FILES['rentimage']
-
+        
         # rent_photo = get_method.FILES["rentimage"]
         # print(property_type, rent_type, division, district, location, money, money_type, floor_no,
         #       floor_face, numerical_value_plot, numerical_value_type, details, photo_url)
         rent_data = OwnerRent(property_type=property_type, rent_type=rent_type, division=division, district=district, property_location=property_location, rent_money=rent_money, money_type=money_type,
-                              floor_no=floor_no, floor_face=floor_face, plot_size=plot_size, numerical_value_type=numerical_value_type, area_description=area_description, rent_photo=rent_photo)
+                              floor_no=floor_no, floor_face=floor_face, plot_size=plot_size, numerical_value_type=numerical_value_type, area_description=area_description, rent_photo=rent_photo,user_email=user_email,phone_no=phone_no)
         rent_data.save()
         messages.success(request, "Your Rental Post added sucessfully!")
 
         return render(request, "OwnerDashboard/owner_rent.html")
 
     return render(request, "OwnerDashboard/owner_rent.html")
+
+
+def owner_post(request):
+    user_email = None
+    if request.user.is_authenticated:
+        user_email = request.user.email
+    
+    my_post=OwnerRent.objects.filter(user_email=user_email)
+    context={
+       'allpost':my_post
+    }
+    print("allpost...................",my_post)    
+
+
+    return render(request, "OwnerDashboard/owner_post.html",context)

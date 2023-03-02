@@ -77,7 +77,7 @@ def ownerSell(request):
 
 
 def ownerRent(request):
-    if request.method == "POST":
+    if request.method == "POST" and request.FILES['rentimage']:
         get_method = request.POST.copy()
         property_type = request.POST.get("property_type")
         rent_type = request.POST.get("rent_type")
@@ -92,7 +92,9 @@ def ownerRent(request):
         plot_size = get_method.get("numerical_value_plot")
         numerical_value_type = get_method.get("numerical_value_type")
         area_description = get_method.get("details")
-        rent_photo = get_method.get("rentimage")
+        rent_photo = request.FILES['rentimage']
+
+        # rent_photo = get_method.FILES["rentimage"]
         # print(property_type, rent_type, division, district, location, money, money_type, floor_no,
         #       floor_face, numerical_value_plot, numerical_value_type, details, photo_url)
         rent_data = OwnerRent(property_type=property_type, rent_type=rent_type, division=division, district=district, property_location=property_location, rent_money=rent_money, money_type=money_type,

@@ -34,11 +34,10 @@ class OwnerRent(models.Model):
     floor_no = models.CharField(null=True, blank=True, max_length=20)
     floor_face = models.CharField(null=True, blank=True, max_length=50)
     plot_size = models.IntegerField(null=True, blank=True)
-    numerical_value_type = models.TextField(
-        max_length=50, null=True, blank=True)
+    numerical_value_type = models.TextField(max_length=50, null=True, blank=True)
     area_description = models.TextField(max_length=250, null=True, blank=True)
     rent_photo = models.ImageField(upload_to='rent', blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
-    # def __str__(self):
-    #     return self.
+    def __str__(self):
+         return self.rent_type

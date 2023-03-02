@@ -35,7 +35,8 @@
              </div>
             {%endfor%}
             <!-- Default checkbox -->
-            <form class="form" id="rentform" method="POST">
+            <form class="form" id="rentform" method="POST"  enctype='multipart/form-data'
+            >
                {% csrf_token %}
 
                <div class="form-check mt-5">
@@ -132,7 +133,7 @@
                <textarea name="details" id="" cols="80" rows="8" class="form-control mt-4 mb-4" style="resize:none;" placeholder="Write Details About Your Property Ellaborately" name="details"></textarea>
                <div class="d-flex gap-3">
                <label class="form-label text-color fw-bold" for="customFile">Upload Photo Of Your Property</label>
-               <input type="file" name="rentimage" class="form-control mb-5 w-50" id="customFile" />
+               <input type="file" name="rentimage" class="form-control mb-5 w-50" id="customFile" required />
                </div>
                <input class="btn bg-color ms-2 me-3 mb-5" type="submit" value="Submit">
                <input class="btn bg-color ms-3 mb-5" type="reset" value="Reset">

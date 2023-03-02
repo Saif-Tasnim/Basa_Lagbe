@@ -21,7 +21,5 @@ urlpatterns = [
     path('', include('home_app.urls')),
     path('user/', include('user_app.urls')),
     path('account/', include('account.urls')),
-    path('Owner-Dashboard/', include('owner_app.urls')),
-    path('tendashboard/', include('user_app.urls'))
-
+    path('dashboard/', include('user_app.urls')),
 ]

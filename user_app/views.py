@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .models import OwnerRent
 from django.contrib import messages
+import time
+
 
 # Create your views here.
 
@@ -125,3 +127,9 @@ def owner_post(request):
 
 
     return render(request, "OwnerDashboard/owner_post.html",context)
+
+
+def delete_post(request,id):
+    OwnerRent.objects.get(id=id).delete()
+    time.sleep(1)
+    return render(request, "OwnerDashboard/owner_post.html")

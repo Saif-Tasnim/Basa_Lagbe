@@ -39,7 +39,6 @@
  
   <div class="col-9 mt-5">
      
-     <h3 class="text-center">Your all posts</h3>
     
     <div class="row  g-4">
       {%for msg in messages%}
@@ -52,6 +51,8 @@
              </div>
             {%endfor%}
       {% if allpost %}
+      <h3 class="text-center">Your all Rent Post</h3>
+
        
       {%  for p in allpost %}
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-xl-4 col-xxl-4">
@@ -112,6 +113,11 @@
      
       {%endif%}
        
+      {% include 'OwnerDashboard/sell_post.html' %}
+
+
+
+      
        
       </div>
 

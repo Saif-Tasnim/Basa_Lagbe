@@ -133,3 +133,33 @@ def delete_post(request,id):
     OwnerRent.objects.get(id=id).delete()
     time.sleep(1)
     return render(request, "OwnerDashboard/owner_post.html")
+
+def updatepost(request,id):
+    single_post= OwnerRent.objects.get(id=id)
+    if request.method == "POST":
+        get_method = request.POST.copy()
+        single_post.property_type = request.POST.get("property_type")
+        single_post.rent_type = request.POST.get("rent_type")
+        single_post.division = get_method.get("division")
+        single_post.district = get_method.get("district")
+        single_post.property_location = get_method.get("location")
+        single_post.rent_money = get_method.get("money")
+        single_post.money_type = get_method.get("money_type")
+        single_post.floor_no = get_method.get("floor_no")
+
+        single_post.floor_face = get_method.get("floor_face")
+        single_post.plot_size = get_method.get("numerical_value_plot")
+        single_post.numerical_value_type = get_method.get("numerical_value_type")
+        single_post.area_description = get_method.get("details")
+        single_post.phone_no=get_method.get("phoneNumber")
+        # single_post.rent_photo = request.FILES['rentimage']
+        single_post.save()
+        messages.success(request,"Post updated Sucesfully!!")
+        return render(request, "OwnerDashboard/updatePost.html")
+
+
+    context={
+        'single_post':single_post
+    }
+    print("singlepost",single_post)
+    return render(request, "OwnerDashboard/updatePost.html",context)

@@ -25,6 +25,10 @@ def identifyUser(request):
 # belows views handles the normal user routes
 
 
+def userAccount(request) :
+    return render(request, "OwnerDashboard/userAccount.html")
+
+
 def userDashboard(request):
     if request.user.is_authenticated:
         if not request.user.is_land_owner:

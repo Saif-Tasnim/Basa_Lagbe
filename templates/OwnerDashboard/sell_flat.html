@@ -2,7 +2,12 @@
   <h4 class="mt-2 mb-3 text-decoration-underline text-center">
     Fill With Your Flat Details
   </h4>
-  <form class="form" method="POST">
+  <form
+    class="form"
+    action="{% url 'sell_property' 'flat' %}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
     {% csrf_token %}
     <div class="input-group mb-3 mt-4" required>
       <select class="form-select mb-3" id="inputGroupSelect02" name="divission">

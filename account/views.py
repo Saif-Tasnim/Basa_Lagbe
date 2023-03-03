@@ -39,7 +39,7 @@ def login_view(request) :
             return render(request, 'login_page/login.html', context)
         else :
             login(request, user)
-            return redirect("/")
+            return redirect("/dashboard")
     return render(request, 'login_page/login.html')
 
 

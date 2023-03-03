@@ -38,7 +38,7 @@
   <div class="col-9 mt-5">
     <form class="form">
         <div class="input-group mb-3 mt-4" required>
-            <select class="form-select mb-3" id="inputGroupSelect02">
+            <select class="form-select mb-3" id="inputGroupSelect02" name="divison">
               <option selected>Choose Divission</option>
               <option value="1">Dhaka</option>
               <option value="2">Chattogram</option>
@@ -51,7 +51,7 @@
             </select>
         </div>  
         <div class="input-group mb-3" required>
-            <select class="form-select mb-3" id="inputGroupSelect02" >
+            <select class="form-select mb-3" id="inputGroupSelect02" name="district">
               <option selected>Choose District</option>
               <option value="1">Dhaka</option>
               <option value="2">Gazipur</option>
@@ -64,16 +64,16 @@
         </div>
 
         <div class="input-group mb-4">
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Your Property Located Area" required>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Your Property Located Area" name="location" required>
           </div>
 
           <div class="input-group mb-3 mt-4">
                 <span class="input-group-text">
                     <i class="fa-solid fa-bangladeshi-taka-sign text-center pt-2"></i>
                 </span>
-                <input type="text" class="form-control w-25 me-2" aria-label="Amount (to the nearest dollar)" placeholder="Ammount You Require For" required>
+                <input type="text" class="form-control w-25 me-2" aria-label="Amount (to the nearest Tk)" placeholder="Ammount You Require For" name="money" required>
         
-            <select class="form-select mb-3 ms-3" id="inputGroupSelect02">
+            <select class="form-select mb-3 ms-3" id="inputGroupSelect02" name="money_type">
                 <option selected>Thousands</option>
                 <option value="2">Lakhs</option>
 
@@ -82,7 +82,7 @@
         
         <div class="d-flex gap-5">
         <div class="input-group mb-3 mt-4 w-50" required>
-            <select class="form-select mb-3" id="inputGroupSelect02">
+            <select class="form-select mb-3" id="inputGroupSelect02" name="floor">
               <option selected>Floor No. (If Any)</option>
               <option value="1">1st</option>
               <option value="2">2nd</option>
@@ -96,7 +96,7 @@
         </div>  
 
         <div class="input-group mb-3 mt-4 w-25" required>
-            <select class="form-select mb-3" id="inputGroupSelect02">
+            <select class="form-select mb-3" id="inputGroupSelect02 "  name="floor_face">
               <option selected>Floor Face </option>
               <option value="1">North</option>
               <option value="2">South</option>
@@ -106,32 +106,25 @@
             </select>
         </div>  
        </div>
-       <div class="form-check mt-4">
-        <label class="me-4"> which type of rent you find:   </label>
-        <label>
-            <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">For Family Living </span></label>
-            <label>
-                <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-4">For Bussines </span></label>
-                <label>
-                    <input type="checkbox" class="radio" value="1" name="fooby[1][]" /> <span class="text-color fw-bold me-5">Others </span></label>
-                    <label>
+       
+       <div class="input-group mb-4">
+        <label>Which property of rent you find</label>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Family/Business/Other" name="location" required>
       </div>
       <br>
-       <div class="d-flex gap-5">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control w-25 me-2" aria-label="Amount (to the nearest dollar)" placeholder="Numerical Value Of Your Plot (If Any)" required>
-    
+       {% comment %} <div class="d-flex gap-5">
+        
         <select class="form-select mb-3 ms-3" id="inputGroupSelect02">
             <option selected>Bigha</option>
             <option value="2">Acre</option>
             <option value="2">Dcm</option>
             <option value="2">Percantage</option>
 
-          </select> 
-      </div>
-    </div>
+          </select>  {% endcomment %}
+      {% comment %} </div>
+    </div> {% endcomment %}
 
-       <textarea name="details" id="" cols="80" rows="8" class="form-control mt-4 mb-4" style="resize:none;" placeholder="Write Details About Your Property Ellaborately"></textarea>
+       <textarea name="details" id="" cols="80" rows="8" class="form-control mt-4 mb-4" style="resize:none;" placeholder="Write Details About Your Property Ellaborately" name="details"></textarea>
        
      
        

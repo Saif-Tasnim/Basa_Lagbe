@@ -3,7 +3,7 @@
 
     
       <img src = "{%static 'images/hacker.png'%}" class = "w-25 mt-4 m-img d-block">
-      <button class="btn mt-3 bg-color text-white px-3 w-75"> 
+      <button class="btn btna mt-3 bg-color text-white px-3 w-75"> 
         update picture
       </button>
       <input class="form-control mt-4 me-3" type="search" placeholder="Search" aria-label="Search">
@@ -13,34 +13,34 @@
       
       <div>
 
-        <button class="btn py-2 object-btn text-color fs-5 w-50 mb-3 ms-2"> 
+        <button class="btn btna py-2 object-btn text-color fs-5 w-100 mb-3 ms-2"> 
           <i class="fa-solid fa-gauge-high"></i> 
-          <a href="{%url 'dash'%}" class="text-color"> Home </a></button>
+          <a href="{%url 'owner-home'%}" class="text-color"> Home </a></button>
 
-        <button class="btn py-2 object-btn text-color fs-5 w-50 mb-3"> 
+        <button class="btn btna py-2 object-btn text-color fs-5 w-100 mb-3"> 
           <i class="fa-solid fa-sack-dollar">  </i>       
           <a href="{%url 'buy'%}" class="text-color"> Buy </a></button>
-
-        <button class="btn py-2 object-btn text-color fs-5 w-50 mb-3"> 
+            
+        <button class="btn  btna py-2 object-btn text-color fs-5 w-100 mb-3"> 
           <i class="fa-brands fa-sellcast"></i>       
           <a href="{%url 'sell'%}" class="text-color"> Sell </a></button>
 
-        <button class="btn py-2 object-btn text-color fs-5 w-50 mb-3"> 
+        <button class="btn btna py-2 object-btn text-color fs-5 w-100 mb-3"> 
           <i class="fa-solid fa-house"></i>  
           <a href="{%url 'rent'%}" class="text-color"> Rent </a></button>
 
-        <button class="btn py-2 object-btn text-color fs-5 w-75 mb-3 xtra-margin"> 
+        <button class="btn btna py-2 object-btn text-color fs-5 w-100 mb-3 "> 
           <i class="fa-solid fa-code-compare"></i>      
-          <a href="#" class="text-color">Compare </a></button>
+          <a href="{%url 'posts'%}" class="text-color">My Post </a></button>
 
-        <button class="btn py-2 object-btn text-color fs-5 w-75 mb-3 xtra-margin-act"> 
+        <button class="btn btna py-2 object-btn text-color fs-5 w-100 mb-3 "> 
           <i class="fa-solid fa-gear"></i>     
           <a href="#" class="text-color"> Account </a></button>
 
       </div>
     
       <div>
-        <button class="btn py-2 mt-5 bg-color fs-5 w-75"> 
+        <button class="btn  btna py-2 mt-5 bg-color fs-5 w-75"> 
           <i class="fa-solid fa-right-from-bracket"></i>      
           <a href="{%url 'index'%}" class="text-white"> Log Out </a></button>
       </div>

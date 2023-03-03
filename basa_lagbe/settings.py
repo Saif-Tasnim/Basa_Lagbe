@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 
 ]
 
@@ -81,10 +81,22 @@ WSGI_APPLICATION = 'basa_lagbe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'basa_lagbe',
+        'USER': 'team_binary',
+        'PASSWORD': 'binary-1234',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3308',
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 
@@ -135,6 +147,9 @@ STATICFILES_DIRS = [
 ]
 
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
 
 CORS_ALLOWED_ORIGINS = [
     "https://example.com",
@@ -144,5 +159,5 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 AUTH_USER_MODEL = 'account.NewUser'
-#Authentication backends
+# Authentication backends
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)

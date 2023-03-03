@@ -35,14 +35,14 @@
 
         <button class="btn btna py-2 object-btn text-color fs-5 w-100 mb-3 "> 
           <i class="fa-solid fa-gear"></i>     
-          <a href="#" class="text-color"> Account </a></button>
+          <a href="{%url 'account'%}" class="text-color"> Account </a></button>
 
       </div>
     
       <div>
         <button class="btn  btna py-2 mt-5 bg-color fs-5 w-75"> 
           <i class="fa-solid fa-right-from-bracket"></i>      
-          <a href="{%url 'index'%}" class="text-white"> Log Out </a></button>
+          <a href="{% url 'logout' %}" class="text-white"> Log Out </a></button>
       </div>
       
 

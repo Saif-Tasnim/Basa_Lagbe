@@ -42,6 +42,17 @@
      <h3 class="text-center">Your all posts</h3>
     
     <div class="row  g-4">
+      {%for msg in messages%}
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+               <strong>Hey!</strong> {{msg}}
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+
+               </button>
+             </div>
+            {%endfor%}
+      {% if allpost %}
+       
       {%  for p in allpost %}
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-xl-4 col-xxl-4">
         <div class="card h-100">
@@ -94,6 +105,12 @@
         </div>
       </div>
       {% endfor %}
+      {%else%}
+      <div class="alert alert-info" role="alert">
+        <h2>You have no post .Please add a post to see your posts!!</h2>
+      </div>
+     
+      {%endif%}
        
        
       </div>

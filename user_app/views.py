@@ -3,6 +3,7 @@ import time
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+import os
 
 from .models import OwnerRent, Sell_flat, Sell_land
 
@@ -22,6 +23,10 @@ def identifyUser(request):
         return render(request, 'UserDashboard/unauthorized_user.html')
 
 # belows views handles the normal user routes
+
+
+def userAccount(request) :
+    return render(request, "OwnerDashboard/userAccount.html")
 
 
 def userDashboard(request):
@@ -44,6 +49,7 @@ def userShow(request):
 
 def userRent(request):
     return render(request, "TenantDashboard/user_rent.html")
+
 
 
 # belows views handles the property owners route
@@ -152,12 +158,19 @@ def owner_post(request):
 
 def delete_post(request,id):
     OwnerRent.objects.get(id=id).delete()
+    messages.success(request,"Post deleted Sucesfully!!")
+
     time.sleep(1)
+
     return render(request, "OwnerDashboard/owner_post.html")
 
 def updatepost(request,id):
     single_post= OwnerRent.objects.get(id=id)
     if request.method == "POST":
+        if len(request.FILES) !=0:
+            if single_post.rent_photo:
+                os.remove(single_post.rent_photo.path)
+            single_post.rent_photo=request.FILES['rentimage']    
         get_method = request.POST.copy()
         single_post.property_type = request.POST.get("property_type")
         single_post.rent_type = request.POST.get("rent_type")
@@ -184,3 +197,11 @@ def updatepost(request,id):
     }
     print("singlepost",single_post)
     return render(request, "OwnerDashboard/updatePost.html",context)
+    
+    
+def userSearch(request):
+    return render(request, "TenantDashboard/search.html")
+    
+def flatDetails(request):
+    return render(request, "TenantDashboard/details_flat.html")
+

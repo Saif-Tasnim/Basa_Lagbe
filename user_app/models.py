@@ -64,7 +64,7 @@ class OwnerRent(models.Model):
     rent_photo = models.ImageField(upload_to='rent', blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     user_email = models.EmailField(max_length=200,blank=True, null=True)
-    phone_no=models.IntegerField(null=True, blank=True)
+    phone_no=models.CharField(max_length=20,null=True, blank=True)
 
     # def __str__(self):
     #      return self.rent_type

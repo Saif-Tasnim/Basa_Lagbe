@@ -1,3 +1,5 @@
+import time
+
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -61,7 +63,7 @@ def ownerBuy(request):
 
 
 def ownerSell(request, property_type = None):
-    if request.method == "POST" :
+    if request.user.is_authenticated and request.method == "POST" :
         if property_type == "flat" :
             get_method = request.POST.copy()
             divission = get_method.get("divission")
@@ -76,6 +78,7 @@ def ownerSell(request, property_type = None):
 
             flat_data = Sell_flat(divission=divission, district=district, location=location, price=price, ammount=ammount, floors_count=floors_count, floor_face=floor_face,details=details, flat_image=flat_image, user_id = request.user.id)
             flat_data.save()
+            messages.success(request, "Your flat selling post added sucessfully!")
 
         if property_type == "land" :
             get_method = request.POST.copy()
@@ -97,6 +100,10 @@ def ownerSell(request, property_type = None):
 
 
 def ownerRent(request):
+
+    user_email = None
+    if request.user.is_authenticated:
+        user_email = request.user.email
     if request.method == "POST" and request.FILES['rentimage']:
         get_method = request.POST.copy()
         property_type = request.POST.get("property_type")
@@ -112,16 +119,68 @@ def ownerRent(request):
         plot_size = get_method.get("numerical_value_plot")
         numerical_value_type = get_method.get("numerical_value_type")
         area_description = get_method.get("details")
+        phone_no=get_method.get("phoneNumber")
         rent_photo = request.FILES['rentimage']
-
+        
         # rent_photo = get_method.FILES["rentimage"]
         # print(property_type, rent_type, division, district, location, money, money_type, floor_no,
         #       floor_face, numerical_value_plot, numerical_value_type, details, photo_url)
         rent_data = OwnerRent(property_type=property_type, rent_type=rent_type, division=division, district=district, property_location=property_location, rent_money=rent_money, money_type=money_type,
-                              floor_no=floor_no, floor_face=floor_face, plot_size=plot_size, numerical_value_type=numerical_value_type, area_description=area_description, rent_photo=rent_photo)
+                              floor_no=floor_no, floor_face=floor_face, plot_size=plot_size, numerical_value_type=numerical_value_type, area_description=area_description, rent_photo=rent_photo,user_email=user_email,phone_no=phone_no)
         rent_data.save()
         messages.success(request, "Your Rental Post added sucessfully!")
 
         return render(request, "OwnerDashboard/owner_rent.html")
 
     return render(request, "OwnerDashboard/owner_rent.html")
+
+
+def owner_post(request):
+    user_email = None
+    if request.user.is_authenticated:
+        user_email = request.user.email
+    
+    my_post=OwnerRent.objects.filter(user_email=user_email)
+    context={
+       'allpost':my_post
+    }
+    print("allpost...................",my_post)    
+
+
+    return render(request, "OwnerDashboard/owner_post.html",context)
+
+
+def delete_post(request,id):
+    OwnerRent.objects.get(id=id).delete()
+    time.sleep(1)
+    return render(request, "OwnerDashboard/owner_post.html")
+
+def updatepost(request,id):
+    single_post= OwnerRent.objects.get(id=id)
+    if request.method == "POST":
+        get_method = request.POST.copy()
+        single_post.property_type = request.POST.get("property_type")
+        single_post.rent_type = request.POST.get("rent_type")
+        single_post.division = get_method.get("division")
+        single_post.district = get_method.get("district")
+        single_post.property_location = get_method.get("location")
+        single_post.rent_money = get_method.get("money")
+        single_post.money_type = get_method.get("money_type")
+        single_post.floor_no = get_method.get("floor_no")
+
+        single_post.floor_face = get_method.get("floor_face")
+        single_post.plot_size = get_method.get("numerical_value_plot")
+        single_post.numerical_value_type = get_method.get("numerical_value_type")
+        single_post.area_description = get_method.get("details")
+        single_post.phone_no=get_method.get("phoneNumber")
+        # single_post.rent_photo = request.FILES['rentimage']
+        single_post.save()
+        messages.success(request,"Post updated Sucesfully!!")
+        return render(request, "OwnerDashboard/updatePost.html")
+
+
+    context={
+        'single_post':single_post
+    }
+    print("singlepost",single_post)
+    return render(request, "OwnerDashboard/updatePost.html",context)

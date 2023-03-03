@@ -47,6 +47,7 @@ def userRent(request):
     return render(request, "TenantDashboard/user_rent.html")
 
 
+
 # belows views handles the property owners route
 
 def ownerDashboard(request):
@@ -192,3 +193,11 @@ def updatepost(request,id):
     }
     print("singlepost",single_post)
     return render(request, "OwnerDashboard/updatePost.html",context)
+    
+    
+def userSearch(request):
+    return render(request, "TenantDashboard/search.html")
+    
+def flatDetails(request):
+    return render(request, "TenantDashboard/details_flat.html")
+

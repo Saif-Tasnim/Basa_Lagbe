@@ -2,7 +2,8 @@ from django.urls import path
 
 from .views import (delete_post, identifyUser, owner_post, ownerBuy,
                     ownerDashboard, ownerRent, ownerSell, updatepost, userBuy,
-                    userDashboard, userRent, userShow)
+                    userDashboard, userRent, userShow, flatDetails, userDash, userBuy, userSearch,userShow,userRent)
+
 
 urlpatterns =[
     path("", identifyUser, name="identify-user"),
@@ -18,5 +19,12 @@ urlpatterns =[
     path("owner-rent",ownerRent, name="rent"),
     path("owner-post",owner_post, name="posts"),
     path("post_delete/<int:id>/",delete_post, name="deletepost"),
-    path("update/<int:id>/",updatepost, name="updatepost")
+    path("update/<int:id>/",updatepost, name="updatepost"),
+    path("", userDash, name="dash"),
+    path("user-Buy",userBuy,name="buy"),
+    path("user-Sell",userShow, name="sell"),
+    path("user-Rent",userRent, name="rent"),
+    path("search",userSearch, name="search"),
+    path("search/details",flatDetails, name="details")
+
 ]

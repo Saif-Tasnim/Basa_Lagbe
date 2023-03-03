@@ -3,6 +3,7 @@ import time
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+import os
 
 from .models import OwnerRent, Sell_flat, Sell_land
 
@@ -152,12 +153,19 @@ def owner_post(request):
 
 def delete_post(request,id):
     OwnerRent.objects.get(id=id).delete()
+    messages.success(request,"Post deleted Sucesfully!!")
+
     time.sleep(1)
+
     return render(request, "OwnerDashboard/owner_post.html")
 
 def updatepost(request,id):
     single_post= OwnerRent.objects.get(id=id)
     if request.method == "POST":
+        if len(request.FILES) !=0:
+            if single_post.rent_photo:
+                os.remove(single_post.rent_photo.path)
+            single_post.rent_photo=request.FILES['rentimage']    
         get_method = request.POST.copy()
         single_post.property_type = request.POST.get("property_type")
         single_post.rent_type = request.POST.get("rent_type")

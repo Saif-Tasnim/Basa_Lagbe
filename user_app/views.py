@@ -15,3 +15,8 @@ def userShow(request):
 
 def userRent(request):
     return render(request, "TenantDashboard/user_rent.html")
+
+def userSearch(request):
+    return render(request, "TenantDashboard/search.html")
+def flatDetails(request):
+    return render(request, "TenantDashboard/details_flat.html")

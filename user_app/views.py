@@ -79,6 +79,7 @@ def ownerSell(request, property_type = None):
 
             flat_data = Sell_flat(divission=divission, district=district, location=location, price=price, ammount=ammount, floors_count=floors_count, floor_face=floor_face,details=details, flat_image=flat_image, user_id = request.user.id)
             flat_data.save()
+            
             messages.success(request, "Your flat selling post added sucessfully!")
 
         if property_type == "land" :
@@ -138,12 +139,20 @@ def ownerRent(request):
 
 def owner_post(request):
     user_email = None
+    user_id=None
+   
     if request.user.is_authenticated:
         user_email = request.user.email
+        user_id = request.user.id
     
     my_post=OwnerRent.objects.filter(user_email=user_email)
+    all_Sell_flat=Sell_flat.objects.filter(user_id=user_id)
+    Sell_land_flat=Sell_land.objects.filter(user_id=user_id)
+
     context={
-       'allpost':my_post
+       'allpost':my_post,
+        'all_Sell_flat':all_Sell_flat,
+        'Sell_land':Sell_land_flat
     }
     print("allpost...................",my_post)    
 

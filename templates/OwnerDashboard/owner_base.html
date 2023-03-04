@@ -8,7 +8,10 @@
     <title>Basha Lagbe</title>
 
     {% comment %} fontawesome link {% endcomment %}
-    <script src="https://kit.fontawesome.com/d543e0cd2f.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/d543e0cd2f.js"
+      crossorigin="anonymous"
+    ></script>
 
     {% comment %} bootstrap {% endcomment %}
     <link
@@ -19,36 +22,34 @@
     />
 
     {% comment %} custom css {% endcomment %}
-    <link rel="stylesheet" href="{% static 'css/owner_navbar.css'%}" type="text/css" />
-     
-
-   
+    <link
+      rel="stylesheet"
+      href="{% static 'css/owner_navbar.css'%}"
+      type="text/css"
+    />
   </head>
   <body>
-     
-    <div class = "container">
-      <div class = "row">
-
-        <div class="col-3 border-end border-primary">    
-    {% include 'OwnerDashboard/navbar.html' %}
+    <div class="container">
+      <div class="row">
+        <div class="col-3 border-end border-primary">
+          {% include 'OwnerDashboard/navbar.html' %}
         </div>
-    
-    <div class ="col-9">
-     {% include 'OwnerDashboard/dash_item.html' %}
-    </div>
 
-     </div>
+        <div class="col-9">{% include 'OwnerDashboard/dash_item.html' %}</div>
+      </div>
     </div>
 
     <script>
-      document.getElementById('profile').addEventListener('click',function(){
-        alert('Now In Under Maintenance Please keep patient');
-      })
-      
-      document.getElementById('notifications').addEventListener('click',function(){
-        alert('Now In Under Maintenance Please keep patient');
-      })
-       </script>
+      document.getElementById("profile").addEventListener("click", function () {
+        alert("Now In Under Maintenance Please keep patient");
+      });
+
+      document
+        .getElementById("notifications")
+        .addEventListener("click", function () {
+          alert("Now In Under Maintenance Please keep patient");
+        });
+    </script>
 
     <!-- bootstrap cdn -->
     <script

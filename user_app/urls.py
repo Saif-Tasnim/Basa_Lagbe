@@ -3,7 +3,7 @@ from django.urls import path
 from .views import (delete_post, flatDetails, identifyUser, owner_post,
                     ownerBuy, ownerDashboard, ownerRent, ownerSell, updatepost,
                     userAccount, userBuy, userDashboard, userRent, userSearch,
-                    userShow)
+                    userShow,deletesellflat,deletesellland    )
 
 urlpatterns =[
     path("", identifyUser, name="identify-user"),
@@ -26,5 +26,9 @@ urlpatterns =[
     # path("user-Sell",userShow, name="sell"),
     # path("user-Rent",userRent, name="rent"),
     path("search",userSearch, name="search"),
-    path("search/details",flatDetails, name="details")
+    path("search/details",flatDetails, name="details"),
+    path("deletesellflat/<int:id>/",deletesellflat, name="deletesellflat"),
+
+    path("deletesellland/<int:id>/",deletesellland, name="deletesellland"),
+
 ]

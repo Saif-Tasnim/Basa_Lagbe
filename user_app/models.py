@@ -22,7 +22,6 @@ class Sell_flat(models.Model):
 
     def __str__(self):
          return self.location
-    
 
 class Sell_land(models.Model):
 

@@ -1,9 +1,9 @@
+import os
 import time
 
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-import os
 
 from .models import OwnerRent, Sell_flat, Sell_land
 
@@ -23,7 +23,6 @@ def identifyUser(request):
         return render(request, 'UserDashboard/unauthorized_user.html')
 
 # belows views handles the normal user routes
-
 
 def userAccount(request) :
     return render(request, "OwnerDashboard/userAccount.html")
@@ -49,7 +48,6 @@ def userShow(request):
 
 def userRent(request):
     return render(request, "TenantDashboard/user_rent.html")
-
 
 
 # belows views handles the property owners route
@@ -102,7 +100,7 @@ def ownerSell(request, property_type = None):
             land_data = Sell_land(divission=divission, district=district, location=location, price=price, ammount=ammount, plots_count=plots_count, land_type=land_type, details=details, land_image=land_image, user_id = request.user.id)
             land_data.save()
             messages.success(request, "Your land selling post added sucessfully!")
-            print(divission, district, location, price, ammount, plots_count, land_type, details, land_image)
+    
     return render(request, "OwnerDashboard/owner_sell.html")
 
 
@@ -129,9 +127,6 @@ def ownerRent(request):
         phone_no=get_method.get("phoneNumber")
         rent_photo = request.FILES['rentimage']
         
-        # rent_photo = get_method.FILES["rentimage"]
-        # print(property_type, rent_type, division, district, location, money, money_type, floor_no,
-        #       floor_face, numerical_value_plot, numerical_value_type, details, photo_url)
         rent_data = OwnerRent(property_type=property_type, rent_type=rent_type, division=division, district=district, property_location=property_location, rent_money=rent_money, money_type=money_type,
                               floor_no=floor_no, floor_face=floor_face, plot_size=plot_size, numerical_value_type=numerical_value_type, area_description=area_description, rent_photo=rent_photo,user_email=user_email,phone_no=phone_no)
         rent_data.save()
@@ -155,27 +150,50 @@ def owner_post(request):
     Sell_land_flat=Sell_land.objects.filter(user_id=user_id)
 
     context={
-       'allpost':my_post,
+        'allpost':my_post,
         'all_Sell_flat':all_Sell_flat,
         'Sell_land':Sell_land_flat
-    }
-    print("allpost...................",my_post)    
-
-
+    } 
     return render(request, "OwnerDashboard/owner_post.html",context)
 
 
-def delete_post(request,id):
-    OwnerRent.objects.get(id=id).delete()
-    messages.success(request,"Post deleted Sucesfully!!")
+def delete_post(request, id):
+    property_type =  request.GET.getlist('type')[0]
+    if property_type == "rent" :
+        try : 
+            OwnerRent.objects.get(id=id).delete()
+            time.sleep(1)
+            messages.success(request,"Rent post deleted Sucesfully!!")
+        except :
+            messages.error(request,"Rent post doesn't exist.")
+    elif property_type == "flat" :
+        try :
+            Sell_flat.objects.get(id=id).delete()
+            time.sleep(1)
+            messages.success(request,"Flat post deleted Sucesfully!!")
+        except :
+            messages.error(request,"Flat post doesn't exist.")
+    elif property_type == "land" :
+        try :
+            Sell_land.objects.get(id=id).delete()
+            time.sleep(1)
+            messages.success(request, "Land post deleted Sucesfully!!")
+        except :
+            messages.error(request,"Land post doesn't exist.")
 
-    time.sleep(1)
-
-    return render(request, "OwnerDashboard/owner_post.html")
+    return owner_post(request)
 
 def updatepost(request,id):
-    single_post= OwnerRent.objects.get(id=id)
-    if request.method == "POST":
+    property_type =  request.GET.getlist('type')[0]
+
+    if property_type == "rent" :
+        single_post= OwnerRent.objects.get(id=id)
+    elif property_type == "flat" :
+        single_flat = Sell_flat.objects.get(id=id)
+    elif property_type == "land" :
+        single_land = Sell_land.objects.get(id=id)
+
+    if request.method == "POST" and property_type == "rent" :
         if len(request.FILES) !=0:
             if single_post.rent_photo:
                 os.remove(single_post.rent_photo.path)
@@ -198,14 +216,55 @@ def updatepost(request,id):
         # single_post.rent_photo = request.FILES['rentimage']
         single_post.save()
         messages.success(request,"Post updated Sucesfully!!")
-        return render(request, "OwnerDashboard/updatePost.html")
+        
+        return owner_post(request)
+    
+    elif request.method == "POST" and property_type == "flat" :
+        if len(request.FILES) !=0:
+            if single_flat.flat_image:
+                os.remove(single_flat.flat_image.path)
+            single_flat.flat_image=request.FILES['photo_url']   
+        get_method = request.POST.copy()
+        divission = get_method.get("divission")
+        district = get_method.get("district")
+        location = get_method.get("location")
+        price = get_method.get("price")
+        ammount = get_method.get("ammount")
+        floors_count = get_method.get("floors_count")
+        floor_face = get_method.get("floor_face")
+        details = get_method.get("details")
 
+    elif request.method == "POST" and property_type == "land" :
+        single_land = Sell_land.objects.get(id=id)
+        if len(request.FILES) !=0:
+            if single_land.land_image:
+                os.remove(single_land.land_image.path)
+            single_land.land_image=request.FILES['photo_url']   
+        get_method = request.POST.copy()
+        divission = get_method.get("divission")
+        district = get_method.get("district")
+        location = get_method.get("location")
+        price = get_method.get("price")
+        ammount = get_method.get("ammount")
+        plots_count = get_method.get("plots_count")
+        land_type = get_method.get("land_type")
+        details = get_method.get("details")
 
-    context={
-        'single_post':single_post
-    }
-    print("singlepost",single_post)
-    return render(request, "OwnerDashboard/updatePost.html",context)
+    if property_type == "rent" :
+        context={
+            'single_post': single_post
+        }
+        return render(request, "OwnerDashboard/updatePost.html", context)
+    elif property_type == "flat" :
+        context={
+            'single_flat':single_flat
+        }
+        return render(request, "OwnerDashboard/updateFlat.html", context)
+    elif property_type == "land" :
+        context={
+            'single_land':single_land
+        }
+        return render(request, "OwnerDashboard/updateLand.html", context)
     
     
 def userSearch(request):

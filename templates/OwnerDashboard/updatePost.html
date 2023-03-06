@@ -39,9 +39,7 @@
             {%for msg in messages%}
             <div class="alert alert-primary alert-dismissible fade show" role="alert">
                <strong>Hey!</strong> {{msg}}
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                </button>
              </div>
             {%endfor%}
@@ -64,9 +62,9 @@
                </div>
                <div class="mt-5">
                <div class="input-group mb-3 mt-4" >
-               <select class="form-select mb-3" value="{{single_post.division}}"   name="division" id="division">
-               <option selected="selected">Choose Divission</option>
-               <option value="Dhaka" selected>Dhaka</option>
+               <select class="form-select mb-3" name="division" id="division">
+               <option selected>Choose Divission</option>
+               <option value="Dhaka">Dhaka</option>
                <option value="Chattogram">Chattogram</option>
                <option value="Rajshahi">Rajshahi</option>
                <option value="Khulna">Khulna</option>
@@ -77,9 +75,9 @@
                </select>
                </div>  
                <div class="input-group mb-3" >
-               <select class="form-select mb-3" name="district" value="{{single_post.district}}" id="district" >
-               <option selected="selected">Choose District</option>
-               <option value="Dhaka" selected>Dhaka</option>
+               <select class="form-select mb-3" name="district" id="district" >
+               <option selected>Choose District</option>
+               <option value="Dhaka">Dhaka</option>
                <option value="Chattogram">Chattogram</option>
                <option value="Rajshahi">Rajshahi</option>
                <option value="Khulna">Khulna</option>
@@ -150,7 +148,7 @@
                      <label>Phone Number</label>
                      <input type="tel" name="phoneNumber" placeholder="+880" class="form-control mt-2"   value="{{single_post.phone_no}}"  /> 
                </div>
-               <textarea name="details" id="" cols="80" rows="8" class="form-control mt-4 mb-4" style="resize:none;" placeholder="Write Details About Your Property Ellaborately" name="details"  value="{{single_post.area_description}}" ></textarea>
+               <textarea name="details" id="" cols="80" rows="8" class="form-control mt-4 mb-4" style="resize:none;" placeholder="Write Details About Your Property Ellaborately" name="details" >{{single_post.area_description}}</textarea>
                <div>
                 <h6>Property Image</h6>
                 <img src="{{single_post.rent_photo.url}}" class="img-thumbnail w-50 mb-2"/>
@@ -163,12 +161,7 @@
                <input class="btn bg-color ms-2 me-3 mb-5" type="submit" value="Update">
             </form>
             </div>
- 
 
-
-
- 
-     
     <!-- bootstrap cdn -->
     <script
     src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

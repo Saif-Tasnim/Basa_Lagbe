@@ -273,3 +273,8 @@ def userSearch(request):
 def flatDetails(request):
     return render(request, "TenantDashboard/details_flat.html")
 
+def deletesellland(request,id):
+    pass
+
+def deletesellflat(request,id):
+    pass

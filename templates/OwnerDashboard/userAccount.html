@@ -38,7 +38,59 @@
  
   <div class="col-9 mt-5">
      <h3 class="text-center">Update Your Profile Here </h3>
+     
+     <form class="form me-5" id="user_account" method="POST"  enctype='multipart/form-data'
+     >
+        {% csrf_token %}
+
+        <div class="d-flex justify-content-center"> 
+          <img src = "{%static 'images/user-profile.png'%}" class = "img-fluid mt-4 w-25">
+        </div>
+
+
+      <div class="form-check mt-5">
+           
+        <div class="mt-2 mb-4">
+              <label class="fs-5 fw-bold">Your First Name</label>
+              <input type="text" name="user_first_name"
+              value = "{{ user_first_name }}" class="form-control mt-2" /> 
+        </div>
+
+        <div class="mt-2 mb-4">
+          <label class="fs-5 fw-bold">Your Last Name</label>
+          <input type="text" name="user_first_name" 
+          value = "{{ user_last_name }}" 
+          class="form-control mt-2" /> 
+    </div>
+
+    <div class="mt-2 mb-4">
+      <label class="fs-5 fw-bold">Your Phone</label>
+      <input type="text" name="user_first_name" 
+      value = "+8801877669501" 
+      class="form-control mt-2" disabled/> 
+</div>
+<div class="mt-2 mb-4">
+  <label class="fs-5 fw-bold">Your Email</label>
+  <input type="text" name="user_first_name" 
+  value = "{{ user_email }}" 
+  class="form-control mt-2" /> 
+</div>
+
+<div class="mt-2 mb-4">
+  <label class="fs-5 fw-bold">Your Address</label>
+  <input type="text" name="user_first_name" class="form-control mt-2" value="Uttara, Dhaka, Bangladesh"/> 
+</div>
+  <div class="mt-5">
+    <input class="btn bg-color ms-2 me-3 mb-5" type="submit" value="Update" />
+    <input class="btn bg-color ms-3 mb-5" type="reset" value="Reset" />
+    </div
+  </form>
+ </div>
+
   </div>
+
+  
+
 
 
 

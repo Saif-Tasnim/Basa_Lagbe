@@ -278,3 +278,27 @@ def deletesellland(request,id):
 
 def deletesellflat(request,id):
     pass
+
+
+def userAccount(request):
+    if request.user.is_authenticated:
+        user_email = request.user.email
+        first_name = request.user.first_name
+        last_name = request.user.last_name
+
+    context = {
+        'user_first_name' : first_name,
+        'user_last_name' : last_name,
+        'user_email' : user_email
+    }
+    
+    
+
+    return render(request, "OwnerDashboard/userAccount.html" , context)
+
+
+def userUpdate(request):
+        if request.method == "POST" :
+            first_name = request.POST.get("first_name")
+            last_name = request.POST.get("last_name")
+            email = request.POST.get("email")

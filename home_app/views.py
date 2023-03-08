@@ -17,15 +17,21 @@ def contact(request):
        email=request.POST["email"]
        message=request.POST["message"]
        name=request.POST["name"]
-       send_mail(
-     'Contact Form',
-       f'From :{email}\n'
+         
+       try:
+             send_mail(
+      'Contact Form',
+       f'From :{email}\n and Name : {name}\n'
        +message,
      'mw0641295@gmail.com',
      ['wahidahmed890@gmail.com'],
        fail_silently=False,
      ) 
-       messages.success(request,"Message send successfully!!....")
+            
+             messages.success(request,"Message send successfully!!....")
+       except:
+           messages.error(request, "Email send Failed")
+
        return render(request, 'Components/Contactuspage.html')
     return render(request, 'Components/Contactuspage.html')
 

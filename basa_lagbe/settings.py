@@ -27,9 +27,9 @@ SECRET_KEY = 'django-insecure-m6ypyrqtiht^lg#197$%nn)u8cftuglhd@1)=ont^#vz)$8f@%
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =  config('debug')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS =[config('ALLOWED_HOSTS')]
 
 
 # Application definition
@@ -93,15 +93,18 @@ WSGI_APPLICATION = 'basa_lagbe.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'basa_lagbe',
-        'USER': 'team_binary',
-        'PASSWORD': 'binary-1234',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+
+        'ENGINE': config('ENGINE'),
+        'NAME': config('NAME'),
+        'USER': config('DBUSER'),
+        'PASSWORD': config('PASSWORD'),
+        'HOST': config('DBHOST'),   # Or an IP Address that your DB is hosted on
+        'PORT': config('DBPORT'),
+
         'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
+
 
 
 # Password validation

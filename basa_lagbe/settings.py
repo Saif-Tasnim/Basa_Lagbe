@@ -98,7 +98,7 @@ DATABASES = {
         'USER': 'team_binary',
         'PASSWORD': 'binary-1234',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3308',
+        'PORT': '3306',
         'OPTIONS': {'charset': 'utf8mb4'},
     }
 }

@@ -30,9 +30,6 @@ def login_view(request) :
     if request.method == "POST" :
         email = request.POST.get("email")
         password = request.POST.get("password")
-        print(email, password)
-        # u = NewUser.objects.get(email=email)
-        # print(u)
         user = authenticate(request, email=email, password=password)
         if user is None :
             context = {"error" : "Invalid user email or password."}

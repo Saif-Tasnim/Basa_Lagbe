@@ -1,6 +1,10 @@
 asgiref==3.6.0
+channels==4.0.0
 Django==4.1.7
+django-cors-headers==3.14.0
+fontawesomefree==6.3.0
+mysqlclient==2.1.1
+Pillow==9.4.0
+python-decouple==3.8
 sqlparse==0.4.3
 tzdata==2022.7
-fontawesomefree==6.3.0
-

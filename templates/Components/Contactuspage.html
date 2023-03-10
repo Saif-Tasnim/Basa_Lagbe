@@ -7,24 +7,35 @@
 <div>
     <div class="pt-5 pb-5 container">
       <div class="row">
+        {%for msg in messages%}
+        <div class="alert alert-primary alert-dismissible fade show mt-3" role="alert">
+           <strong>Hey!</strong> {{msg}}
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+           </button>
+         </div>
+        {%endfor%}
         <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 col-xxl-6 col-xs-12">
+           <form class="form me-5" id="rentform" method="POST"  enctype='multipart/form-data'>
+            {% csrf_token %}
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">NAME </label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your name">
-              </div>
+              <label for="exampleFormControlInput1" class="form-label">NAME </label>
+              <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Your name">
+            </div>
 
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-              </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email address</label>
+              <input type="email" name="email"  class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
 
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Massage</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
-                placeholder="Your massege"
-                ></textarea>
-              </div>
-              <button class="btn btn-primary">Send Massage</button>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Massage</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+              placeholder="Your massege"
+              name="message"  
+              ></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send Massage</button>
+           </form>
 
         </div>
 

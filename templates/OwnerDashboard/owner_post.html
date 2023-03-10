@@ -47,7 +47,7 @@
       {%endfor%}
 
       {% if allpost %}
-      <h3 class="text-center mb-3 text-secondary">Your all Rent Post</h3>
+      <h3 class="text-center mb-3 text-secondary">Your Rent Post's</h3>
       <hr/>
       {%  for p in allpost %}
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-xl-4 col-xxl-4">
@@ -100,7 +100,7 @@
       {% endfor %}
       {% endif %}
       {% if not allpost|length and not all_Sell_flat|length and not Sell_land|length %}
-      <h3 class="text-center text-secondary">You didn't post anything to sell yet</h3>
+      <h3 class="text-center text-secondary">You've no post</h3>
       {%endif%}
       {% include 'OwnerDashboard/sell_post.html' %}
       </div>

@@ -9,12 +9,12 @@
         <div class="card h-100">
           <img src="{{p.flat_image.url}}" class="card-img-top img-thumbnail h-50" alt="Rent image">
           <div class="card-body">
-            <h5 class="card-title">Divison:{{ p.divission }}</h5>
-            <p class="card-text">
-             District:{{ p.district }}.<br/>
-              Floor No:{{p.floors_count }}<br/>
-              Floor Face:{{p.floor_face }}</br>
-              Price:{{p.price }}</p>
+            <h5 class="card-title">Divison: {{ p.divission }}</h5>
+            <p class="card-text ">
+             District: {{ p.district }}.<br/>
+              Floor No: {{p.floors_count }}<br/>
+              Floor Face: {{p.floor_face }}</br>
+              Price: {{p.price }}</p>
           </div>
           <div class="d-flex m-2 justify-content-between">
             <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#flat_{{p.id}}">
@@ -64,12 +64,12 @@
   <div class="card h-100">
     <img src="{{p.land_image.url}}" class="card-img-top img-thumbnail h-50" alt="Rent image">
     <div class="card-body">
-      <h5 class="card-title">Divison:{{ p.divission }}</h5>
+      <h5 class="card-title">Divison: {{ p.divission }}</h5>
       <p class="card-text">
-       District:{{ p.district }}.<br/>
-       Plots:{{p.plots_count }}<br/>
-       Land type:{{p.land_type }}</br>
-        Price:{{p.price }}</p>
+       District: {{ p.district }}<br/>
+       Plots: {{p.plots_count }}<br/>
+       Land type: {{p.land_type }}</br>
+        Price: {{p.price }}</p>
     </div>
     <div class="d-flex m-2 justify-content-between">
       <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#land_{{p.id}}">

@@ -98,6 +98,9 @@
         </div>
       </div>
       {% endfor %}
+      {% endif %}
+      {% if not allpost|length and not all_Sell_flat|length and not Sell_land|length %}
+      <h3 class="text-center text-secondary">You didn't post anything to sell yet</h3>
       {%endif%}
       {% include 'OwnerDashboard/sell_post.html' %}
       </div>

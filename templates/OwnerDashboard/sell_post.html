@@ -2,19 +2,19 @@
 
 
 {% if all_Sell_flat %}
-      <h3 class="text-center mt-5 mb-3 text-secondary">Your all Sell Post for flat</h3>
+      <h3 class="text-center mt-5 mb-3 text-secondary">Your Sell Post's for flat</h3>
       <hr/>
       {%  for p in all_Sell_flat %}
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-xl-4 col-xxl-4">
         <div class="card h-100">
           <img src="{{p.flat_image.url}}" class="card-img-top img-thumbnail h-50" alt="Rent image">
           <div class="card-body">
-            <h5 class="card-title">Divison:{{ p.divission }}</h5>
-            <p class="card-text">
-             District:{{ p.district }}.<br/>
-              Floor No:{{p.floors_count }}<br/>
-              Floor Face:{{p.floor_face }}</br>
-              Price:{{p.price }}</p>
+            <h5 class="card-title">Divison: {{ p.divission }}</h5>
+            <p class="card-text ">
+             District: {{ p.district }}.<br/>
+              Floor No: {{p.floors_count }}<br/>
+              Floor Face: {{p.floor_face }}</br>
+              Price: {{p.price }}</p>
           </div>
           <div class="d-flex m-2 justify-content-between">
             <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#flat_{{p.id}}">
@@ -57,19 +57,19 @@
       {%endif%}
 
 {% if Sell_land %}
-<h3 class="text-center mt-5 mb-3 text-secondary">Your all Sell Post for Land</h3>
+<h3 class="text-center mt-5 mb-3 text-secondary">Your Sell Post's for Land</h3>
 <hr/>
 {%  for p in Sell_land %}
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-xl-4 col-xxl-4">
   <div class="card h-100">
     <img src="{{p.land_image.url}}" class="card-img-top img-thumbnail h-50" alt="Rent image">
     <div class="card-body">
-      <h5 class="card-title">Divison:{{ p.divission }}</h5>
+      <h5 class="card-title">Divison: {{ p.divission }}</h5>
       <p class="card-text">
-       District:{{ p.district }}.<br/>
-       Plots:{{p.plots_count }}<br/>
-       Land type:{{p.land_type }}</br>
-        Price:{{p.price }}</p>
+       District: {{ p.district }}<br/>
+       Plots: {{p.plots_count }}<br/>
+       Land type: {{p.land_type }}</br>
+        Price: {{p.price }}</p>
     </div>
     <div class="d-flex m-2 justify-content-between">
       <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#land_{{p.id}}">

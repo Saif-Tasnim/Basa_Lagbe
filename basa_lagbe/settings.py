@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -97,7 +98,7 @@ DATABASES = {
         'USER': 'team_binary',
         'PASSWORD': 'binary-1234',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'PORT': '3308',
         'OPTIONS': {'charset': 'utf8mb4'},
     }
 }

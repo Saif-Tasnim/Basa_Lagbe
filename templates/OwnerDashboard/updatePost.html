@@ -96,7 +96,7 @@
                <i class="fa-solid fa-bangladeshi-taka-sign text-center pt-2"></i>
                </span>
                <input type="text" value="{{single_post.rent_money}}"  class="form-control w-25 me-2" aria-label="Amount (to the nearest dollar)" placeholder="Ammount You Require For" name="money" >
-               <select class="form-select mb-3 ms-3" id="inputGroupSelect02" name="money_type"  value="{{single_post.money_type}}">
+               <select class="form-select ms-3" id="inputGroupSelect02" name="money_type"  value="{{single_post.money_type}}">
                <option selected>Thousands</option>
                <option value="2">Lakhs</option>
                </select> 
@@ -131,7 +131,7 @@
                value="{{single_post.plot_size}}" 
                name="numerical_value_plot"
                required>
-               <select class="form-select mb-3 ms-3" id="inputGroupSelect02" name="numerical_value_type"  
+               <select class="form-select ms-3" id="inputGroupSelect02" name="numerical_value_type"  
               
                >
                <option value="Bigha" {% if single_post.numerical_value_type == Bigha %}

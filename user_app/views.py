@@ -1,6 +1,7 @@
 import os
 import time
 
+from account.models import NewUser
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -25,8 +26,7 @@ def identifyUser(request):
 # belows views handles the normal user routes
 
 def userAccount(request) :
-    return render(request, "OwnerDashboard/userAccount.html")
-
+        return render(request, "OwnerDashboard/userAccount.html")
 
 def userDashboard(request):
     if request.user.is_authenticated:
@@ -213,7 +213,6 @@ def updatepost(request,id):
         single_post.numerical_value_type = get_method.get("numerical_value_type")
         single_post.area_description = get_method.get("details")
         single_post.phone_no=get_method.get("phoneNumber")
-        # single_post.rent_photo = request.FILES['rentimage']
         single_post.save()
         messages.success(request,"Post updated Sucesfully!!")
         
@@ -225,15 +224,15 @@ def updatepost(request,id):
                 os.remove(single_flat.flat_image.path)
             single_flat.flat_image=request.FILES['photo_url']   
         get_method = request.POST.copy()
-        divission = get_method.get("divission")
-        district = get_method.get("district")
-        location = get_method.get("location")
-        price = get_method.get("price")
-        ammount = get_method.get("ammount")
-        floors_count = get_method.get("floors_count")
-        floor_face = get_method.get("floor_face")
-        details = get_method.get("details")
-
+        single_flat.price = get_method.get("price")
+        single_flat.ammount = get_method.get("ammount")
+        single_flat.floors_count = get_method.get("floors_count")
+        single_flat.floor_face = get_method.get("floor_face")
+        single_flat.details = get_method.get("details")
+        single_flat.save()
+        messages.success(request,"Flat data updated successfully!")
+        return owner_post(request)
+    
     elif request.method == "POST" and property_type == "land" :
         single_land = Sell_land.objects.get(id=id)
         if len(request.FILES) !=0:
@@ -241,15 +240,15 @@ def updatepost(request,id):
                 os.remove(single_land.land_image.path)
             single_land.land_image=request.FILES['photo_url']   
         get_method = request.POST.copy()
-        divission = get_method.get("divission")
-        district = get_method.get("district")
-        location = get_method.get("location")
-        price = get_method.get("price")
-        ammount = get_method.get("ammount")
-        plots_count = get_method.get("plots_count")
-        land_type = get_method.get("land_type")
-        details = get_method.get("details")
-
+        single_land.price = get_method.get("price")
+        single_land.ammount = get_method.get("ammount")
+        single_land.plots_count = get_method.get("plots_count")
+        single_land.land_type = get_method.get("land_type")
+        single_land.details = get_method.get("details")
+        single_land.save()
+        messages.success(request,"land data updated successfully!")
+        return owner_post(request)
+    
     if property_type == "rent" :
         context={
             'single_post': single_post
@@ -285,14 +284,59 @@ def userAccount(request):
         user_email = request.user.email
         first_name = request.user.first_name
         last_name = request.user.last_name
+        user_phone = request.user.phone_number
+        user_address = request.user.address
+        land_owner = request.user.is_land_owner
+        user_image = request.user.user_image
+
+        if request.method == "POST" :
+            user_obj = NewUser.objects.get(id=request.user.id)
+
+            updated_first_name = request.POST.get('first_name')
+            updated_last_name = request.POST.get('last_name')
+            updated_email = request.POST.get('email')
+            updated_phone_number = request.POST.get('phone')
+            updated_address = request.POST.get('address')
+
+            if user_obj :
+                if len(request.FILES) !=0:
+                    if user_obj.user_image:
+                        os.remove(user_obj.user_image.path)
+                    user_obj.user_image = request.FILES['photo_url']   
+                user_obj.first_name = updated_first_name
+                user_obj.last_name = updated_last_name
+                user_obj.email = request.user.email
+                user_obj.phone_number = updated_phone_number
+                user_obj.address = updated_address
+                if not request.user.is_land_owner :
+                    land_ownership = request.POST.get("is_land_owner")
+                    if land_ownership == "true":
+                        user_obj.is_land_owner = True
+                user_obj.save()
+                messages.success(request,"Account updated sucesfully!")
+                updated_user_obj = NewUser.objects.get(id=request.user.id)
+
+                context = {
+                    'user_first_name' : updated_user_obj.first_name,
+                    'user_last_name' : updated_user_obj.last_name,
+                    'user_email' : updated_user_obj.email,
+                    'user_phone_number' : updated_user_obj.phone_number,
+                    'user_address' : updated_user_obj.address,
+                    'land_owner' : updated_user_obj.is_land_owner,
+                    'user_image' : updated_user_obj.user_image
+                }
+                return render(request, "OwnerDashboard/userAccount.html" , context)
+
 
     context = {
         'user_first_name' : first_name,
         'user_last_name' : last_name,
-        'user_email' : user_email
+        'user_email' : user_email,
+        'user_phone_number' : user_phone,
+        'user_address' : user_address,
+        'land_owner' : land_owner,
+        'user_image' : user_image
     }
-    
-    
 
     return render(request, "OwnerDashboard/userAccount.html" , context)
 

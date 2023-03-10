@@ -50,9 +50,12 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=150, blank=True)
     start_date = models.DateTimeField(default=timezone.now)
     about = models.TextField(_('about'), max_length=500, blank=True)
+    phone_number = models.TextField(max_length=50, blank=True, null=True)
+    address = models.TextField(max_length=250, blank=True, null=True)
     is_land_owner = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
+    user_image = models.ImageField(upload_to='user_photo', blank=True, null=True)
 
     objects = CustomAccountManager()
 
@@ -61,3 +64,4 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+

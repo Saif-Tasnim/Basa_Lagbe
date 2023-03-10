@@ -93,12 +93,14 @@ WSGI_APPLICATION = 'basa_lagbe.wsgi.application'
 
 DATABASES = {
     'default': {
+
         'ENGINE': config('ENGINE'),
         'NAME': config('NAME'),
         'USER': config('DBUSER'),
         'PASSWORD': config('PASSWORD'),
         'HOST': config('DBHOST'),   # Or an IP Address that your DB is hosted on
         'PORT': config('DBPORT'),
+
         'OPTIONS': {'charset': 'utf8mb4'},
     }
 }

@@ -24,7 +24,7 @@ def contact(request):
        f'From :{email}\n and Name : {name}\n'
        +message,
      'mw0641295@gmail.com',
-     ['wahidahmed890@gmail.com'],
+     ['saiftasnim2002@gmail.com'],
        fail_silently=False,
      ) 
             

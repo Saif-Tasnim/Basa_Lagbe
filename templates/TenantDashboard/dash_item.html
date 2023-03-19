@@ -6,6 +6,7 @@
 {% include "TenantDashboard/upper_nav.html"%}
 
 <div class="contaier">
+  {% comment %} <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for place.."> {% endcomment %}
   
     {% comment %} Section - 1  Hot Collections Of Flat{% endcomment %}
 
@@ -15,13 +16,13 @@
 
   {% comment %} Pictures of Flat Card {% endcomment %}
 
- <div class="row row-cols-1 row-cols-md-3 g-4">
+ <div class="row row-cols-1 row-cols-md-3 g-4"  id="myItems">
     <div class="col">
       <div class="card h-100">
         <img src="{% static 'images/flat.jpg' %}" class="card-img-top h-50" alt="...">
         <div class="card-body">
           <h5 class="card-title text-center"><i class="fa-solid fa-location-dot"></i> Banani-2, Dhaka</h5>
-          <p class="card-text ms-1">This is new readymade flat for sale.It is located in central places of Dhaka city & a residential secure place for living. <a hre="#" class="text-priamry card-a"> View Details </a></p>
+          <p class="card-text ms-1">This is new readymade flat for sale.It is located in central places of Dhaka city & a residential secure place for living. <a href="{% url 'details' %}" class="text-priamry card-a"> View Details </a></p>
         </div>
         <small class="text-muted">
         <div class="card-footer d-flex justify-content-between">
@@ -201,5 +202,24 @@
 
 
 </div>
+{%comment%}
+<script>
+  function myFunction() {
+  var input, filter, cards, cardContainer, h5, title, i;
+  input = document.getElementById("myFilter");
+  filter = input.value.toUpperCase();
+  cardContainer = document.getElementById("myItems");
+  cards = cardContainer.getElementsByClassName("col");
+  for (i = 0; i < cards.length; i++) {
+      title = cards[i].querySelector(".card-body h5.card-title");
+      if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+          cards[i].style.display = "";
+      } else {
+          cards[i].style.display = "none";
+      }
+  }
+}
+</script>
+{% endcomment %}
 
 

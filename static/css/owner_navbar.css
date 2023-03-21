@@ -12,12 +12,12 @@ a {
 }
 
 .bg-color {
-  background-color: #2c74b3;
+  background-color: #394263;
   color: white;
 }
 
 .text-color {
-  color: #2c74b3;
+  color: white;
 }
 
 .object-pos {
@@ -29,13 +29,13 @@ a {
 }
 
 .btna:hover {
-  background-color: #2c74b3;
+  background-color: #394263;
   transition: ease-in-out;
   color: white;
 }
 
 .btna:hover a {
-  background-color: #2c74b3;
+  background-color: #394263;
   transition: ease-in-out;
   color: white;
 }
@@ -78,10 +78,22 @@ a {
 }
 
 .duration {
-  background: #2c74b3;
+  background: #394263;
   border-radius: 15px;
   width: 94.83px;
   height: 29.38px;
   text-align: center;
   color: white;
+}
+
+.owner-navbar {
+  background-color: #394263;
+}
+
+.navbar-height {
+  height: 100%;
+}
+
+.text-name-color {
+  color: #394263;
 }

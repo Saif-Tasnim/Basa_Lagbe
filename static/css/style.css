@@ -38,6 +38,7 @@ a {
   min-height: 27px;
   min-width: 120px;
   margin-right: 5px;
+  color: #000000;
 }
 
 .loginbtn:hover,
@@ -69,6 +70,16 @@ a {
   /* set the height of the div to center the text vertically */
 }
 
+.btn-bg-color {
+  background-color: rgb(228, 225, 225);
+  transition: 0.7s;
+}
+
+.btn-bg-color:hover {
+  background-color: #3078b8;
+  transition: 0.7s;
+}
+
 .roundbtn {
   background: #d9d9d9;
   border: 2px solid rgba(255, 255, 255, 0.18);
@@ -88,8 +99,14 @@ a {
   background-color: rgba(239, 241, 242, 0.5);
   padding-top: 20px;
 }
+
 .numbers {
-  background: #083158;
+  background: linear-gradient(
+    180deg,
+    #7c9dbc 19.79%,
+    #607f9b 70.83%,
+    #344f68 100%
+  );
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-align: center;
   padding-top: 30px;
@@ -141,8 +158,8 @@ a {
   background: #e4ecf1;
   border-radius: 27px;
   color: #1f3659;
-  padding-top: 47px !important;
-  padding-left: 50px;
+  /* padding-top: 47px !important; */
+  /* padding-left: 50px; */
 }
 
 .newslatter {

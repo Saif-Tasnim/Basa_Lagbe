@@ -29,7 +29,18 @@
     />
   </head>
   <body>
-    <div class="container">{% include 'TenantDashboard/dash_item.html' %}</div>
+    <div class = "overflow-hidden">
+      <div class = "row">
+        <div class="col-3 border-primary">    
+    {% include 'OwnerDashboard/navbar.html' %}
+        </div>
+    
+    <div class ="col-9">
+     {% include 'TenantDashboard/dash_item.html' %}
+    </div>
+
+     </div>
+    </div>
 
     <script>
       document.getElementById("profile").addEventListener("click", function () {

@@ -100,7 +100,6 @@ DATABASES = {
         'PASSWORD': config('PASSWORD'),
         'HOST': config('DBHOST'),   # Or an IP Address that your DB is hosted on
         'PORT': config('DBPORT'),
-
         'OPTIONS': {'charset': 'utf8mb4'},
     }
 }

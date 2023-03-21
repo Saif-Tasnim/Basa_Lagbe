@@ -40,13 +40,59 @@
           <a class="nav-link" href="{%url 'contact'%}">Contact us</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right text-white">
+        {% if user.is_authenticated %}
+        <div class="dropdown show btn-bg-color rounded">
+          <a
+            class="btn dropdown-toggle"
+            href="#"
+            role="button"
+            id="dropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {% if not request.user.user_image %}
+            <i class="fa-solid fa-user"></i>
+            {% else %}
+            <img src = "{{request.user.user_image.url}}" class = "img-fluid rounded-circle" style="width: 25px; height:25px">
+            {% endif %}
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <div class="d-flex">
+              <a href="{%url 'account'%}" class="nav-link">
+                {% if not request.user.user_image %}
+                <i class="fa-solid fa-user"></i>
+                {% else %}
+                <img src = "{{request.user.user_image.url}}" class = "img-fluid rounded-circle" style="width: 25px; height:25px">
+                {% endif %}
+                {{user.first_name}} {{user.last_name}}</a
+              >
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'dashboard'%}"
+                ><i class="fa-solid fa-address-card"></i> Dashboard</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'logout' %}" class="nav-link"
+                ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a
+              >
+            </li>
+          </div>
+        </div>
+
+        {% else %}
+
         <button type="button" class="loginbtn">
           <a href="{%url 'login'%}" class="text-style-none"> Log in</a>
         </button>
         <button type="button" class="buttn1">
           <a href="{%url 'register'%}" class="reg_a">Sign Up </a>
         </button>
+        {%endif %}
       </ul>
     </div>
   </div>

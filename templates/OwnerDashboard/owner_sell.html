@@ -20,40 +20,47 @@
 
     {% comment %} custom css {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/owner_navbar.css'%}" type="text/css" />
-     
-
-   
   </head>
   <body>
      
-    <div class = "container">
-      <div class = "row">
-
-        <div class="col-3 border-end border-primary">    
-    {% include 'OwnerDashboard/navbar.html' %}
-        </div>
+<div class = "overflow-hidden">
+  <div class = "row">
+    
+    <div class="col-3 border-primary">    
+      {% include 'OwnerDashboard/navbar.html' %}
+    </div>
     
     <div class ="col-9">
-      <h4 class="text-center mt-5"> Sell Your Property From Here </h4>
+      <h4 class="text-center text-secondary mt-5">Sell Your Property</h4>
 
+      {%for msg in messages%}
+      <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+         <strong>Hey!</strong> {{msg}}
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+         </button>
+       </div>
+      {%endfor%}
 
- 
-      <div class="bg-color p-1 rounded mt-5 w-25 mb-3">
-              <input type="radio" id="radio-button_flat" name="radio-button"> Sell Flat
-          </div>
-        
-      {%include "OwnerDashboard/sell_flat.html"%}
-      
-      
-      <div class="bg-color p-1 rounded w-25 mb-3 mt-5">
-          <input type="radio" id="radio-button_land" name="radio-button"> Sell Land 
+      <div class="me-5">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active fs-3 p-3" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Sell Flat</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link fs-3 p-3" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Sell Land</button>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          {%include "OwnerDashboard/sell_flat.html"%}
         </div>
-      
-        {%include "OwnerDashboard/sell_land.html"%}
-      
-
-     </div>
-    </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          {%include "OwnerDashboard/sell_land.html"%}
+        </div>
+      </div>
+  </div>
+</div>
 
     <!-- bootstrap cdn -->
     <script
